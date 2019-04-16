@@ -1,0 +1,3 @@
+#+TITLE: swm-grid
+
+Navigate groups (desktops) in StumpWM as a physical grid.
