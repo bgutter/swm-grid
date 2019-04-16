@@ -1,3 +1,31 @@
 #+TITLE: swm-grid
 
-Navigate groups (desktops) in StumpWM as a physical grid.
+Navigate groups (desktops) in StumpWM as a physical grid. Displays
+desktop grid as a message, with the current group highlighted, while
+navigating.
+
+* Installation & Quickstart
+
+In your config.lisp:
+
+#+BEGIN_SRC common-lisp
+(stumpwm:add-to-load-path "/path/to/cloned/swm-grid/")
+(stumpwm:load-module "swm-grid")
+
+(swm-grid:create-groups)
+
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Right") "group-right")
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Left")  "group-left")
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Down")  "group-down")
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Up")    "group-up")
+#+END_SRC
+
+* Exported Symbols
+
+| Name              | Type     | Description                                                                                   |
+|-------------------+----------+-----------------------------------------------------------------------------------------------|
+| =*width*=         | int      | Width of the grid, in groups (desktops)                                                       |
+| =*height*=        | int      | Height of the grid, in groups (desktops)                                                      |
+| =*default-group*= | int      | Index of the default group. Will be selected after group creation.                            |
+| =create-groups=   | function | Call once at startup, after setting variables. Creates enough empty groups to fill the grid.  |
+| =DIRECTION-group= | function | ...where DIRECTION is left, right, up, or down. Navigate to the group in the given direction. |
