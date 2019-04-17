@@ -1,5 +1,7 @@
 #+TITLE: swm-grid
 
+[[./example.gif]]
+
 Navigate groups (desktops) in StumpWM as a physical grid. Displays
 desktop grid as a message, with the current group highlighted, while
 navigating.
@@ -14,18 +16,18 @@ In your config.lisp:
 
 (swm-grid:create-groups)
 
-(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Right") "group-right")
-(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Left")  "group-left")
-(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Down")  "group-down")
-(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Up")    "group-up")
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Right") "right-group")
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Left")  "left-group")
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Down")  "down-group")
+(stumpwm:define-key stumpwm:*top-map* (stumpwm:kbd "C-M-Up")    "up-group")
 #+END_SRC
 
 * Exported Symbols
 
-| Name              | Type     | Description                                                                                   |
-|-------------------+----------+-----------------------------------------------------------------------------------------------|
-| =*width*=         | int      | Width of the grid, in groups (desktops)                                                       |
-| =*height*=        | int      | Height of the grid, in groups (desktops)                                                      |
-| =*default-group*= | int      | Index of the default group. Will be selected after group creation.                            |
-| =create-groups=   | function | Call once at startup, after setting variables. Creates enough empty groups to fill the grid.  |
-| =DIRECTION-group= | function | ...where DIRECTION is left, right, up, or down. Navigate to the group in the given direction. |
+| Name              | Description                                                                                   |
+|-------------------+-----------------------------------------------------------------------------------------------|
+| =*width*=         | Width of the grid, in groups (desktops)                                                       |
+| =*height*=        | Height of the grid, in groups (desktops)                                                      |
+| =*default-group*= | Index of the default group. Will be selected after group creation.                            |
+| =create-groups=   | Call once at startup, after setting variables. Creates enough empty groups to fill the grid.  |
+| =DIRECTION-group= | ...where DIRECTION is left, right, up, or down. Navigate to the group in the given direction. |
